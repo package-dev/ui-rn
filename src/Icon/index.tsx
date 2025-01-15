@@ -39,26 +39,31 @@ export const RNVectorIcon = {
 }
 export type IconType = keyof typeof RNVectorIcon
 import { Props, } from './PropsStyle'
-import { Colors } from '../config'
+import { makeProps } from './makeProps'
 export default class IconApp extends React.PureComponent<Props> {
     static defaultProps: Props = {
         size: 23,
         color: 'gray',
         name: 'home',
     }
+    res: { color: string, style: any, size: number }
+    constructor(props) {
+        super(props)
+        this.res = makeProps(props)
+    }
     render() {
+        const { size, color, style } = this.res
+        console.debug('res', this.res)
         if (this.props.name === "none") return null
         const IconView = RNVectorIcon[this.props.type || 'Ionicons']
         if (typeof this.props.onPress != "function") {
             return (
                 <IconView
-                    //@ts-ignore
-                    size={this.props.size}
-                    //@ts-ignore
-                    color={Colors(this.props.color) ?? this.props.color}
+                    size={size}
+                    color={color}
+                    style={style}
                     name={this.props.name}
                     onPress={this.props.onPress}
-                    style={this.props.style as any}
                 />
             )
         }
@@ -76,13 +81,12 @@ export default class IconApp extends React.PureComponent<Props> {
                         this.props.styleContainer,
 
                     ]} >
-                <IconView //@ts-ignore
-                    size={this.props.size}
-                    //@ts-ignore
-                    color={Colors(this.props.color) ?? this.props.color}
+                <IconView
+                    size={size}
+                    color={color}
+                    style={style}
                     name={this.props.name}
                     onPress={this.props.onPress}
-                    style={this.props.style as any}
                 />
             </TouchableOpacity>
         )

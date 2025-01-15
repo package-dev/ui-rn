@@ -21,7 +21,7 @@ const Touch = React.forwardRef<TouchableOpacityRef, Props>(({ style, ...props },
           colors={props.background}
           start={props.gradient == "vertical" ? { x: 0, y: 0 } : { x: 0, y: 0 }}
           end={props.gradient == "vertical" ? { x: 0, y: 1 } : { x: 1, y: 0 }}
-          style={[Style(props), style, props.styleBox]}
+          style={[Style(props), style]}
         >
           {props.children}
         </LinearGradient >
@@ -31,7 +31,7 @@ const Touch = React.forwardRef<TouchableOpacityRef, Props>(({ style, ...props },
     <TouchableOpacity
       ref={ref}
       activeOpacity={props.activeOpacity || 0.5}
-      style={[Style(props), style, props.styleBox]}
+      style={[Style(props), style]}
       {...props}>
       {props.children}
     </TouchableOpacity>

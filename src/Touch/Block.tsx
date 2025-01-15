@@ -16,12 +16,12 @@ const Block = React.forwardRef<TouchableOpacityRef, Props>(({ style, ...props },
         colors={props.background}
         start={props.gradient == "vertical" ? { x: 0, y: 0 } : { x: 0, y: 0 }}
         end={props.gradient == "vertical" ? { x: 0, y: 1 } : { x: 1, y: 0 }}
-        style={[Style(props), style, props.styleBox]}>
+        style={[Style(props), style]}>
         {props.children}
       </LinearGradient >
     )
   //@ts-ignore
-  return (<View ref={ref} style={[Style(props), style, props.styleBox]}
+  return (<View ref={ref} style={[Style(props), style]}
     {...props}>
     {props.children}
   </View>

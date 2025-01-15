@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextProps, TextStyle } from 'react-native'
 import { IColor, ILanguage } from '../config'
+import { MakeProp } from './makeStyle'
 interface PropsParent {
     children?: React.ReactNode
     bold?: boolean | TextStyle['fontWeight']
@@ -11,10 +12,10 @@ interface PropsParent {
     color?: string | Array<IColor>
     toUpperCase?: boolean
     toLowerCase?: boolean
-    flex1?: boolean; flex2?: boolean; flex3?: boolean; flex4?: boolean; flex5?: boolean; flex6?: boolean; flex7?: boolean; flex8?: boolean; flex9?: boolean;
     background?: string | Array<ILanguage>
 }
-export interface Props extends TextProps, PropsParent {
+//@ts-ignore
+export interface Props extends TextProps, PropsParent, MakeProp {
     backgroundColor?: string
     primary?: boolean
     white?: boolean

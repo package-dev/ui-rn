@@ -14,9 +14,10 @@ import {
 } from 'react-native'
 
 import { isArray, isEmpty, isNumber, isObject, isString } from "underscore";
-export interface Props {
+import { MakeProp } from "./makeProps";
+export interface Props extends MakeProp {
     name: string
-    size?: number | Array<size>
+    size?: number
     type?: keyof typeof RNVectorIcon
     onPress?: () => void
     styleContainer?: StyleProp<ViewStyle>
@@ -28,5 +29,4 @@ export interface Props {
 
 }
 
-type size = 18 | 20 | 22 | 23 | 24 | 25 | 26 | 28 | 30 | 32 | 34 | 36
 

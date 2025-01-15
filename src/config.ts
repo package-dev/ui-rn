@@ -1,7 +1,7 @@
-export const Colors = (e) => {
+export const Colors = (e: any) => {
     return e
 }
-export const Language = (e) => {
+export const Language = (e: any) => {
     return e
 }
 export type IColor = keyof typeof COLOR
