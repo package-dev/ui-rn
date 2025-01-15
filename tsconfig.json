@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {},
+  "files": ["./global.d.ts"],
+  "include": ["./App.tsx"],
+  "extends": "@react-native/typescript-config/tsconfig.json"
+}
