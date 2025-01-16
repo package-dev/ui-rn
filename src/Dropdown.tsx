@@ -9,7 +9,7 @@ export default function AlertApp() {
             ref={ref}
             inactiveStatusBarBackgroundColor={'green'}
             updateStatusBar={false}
-            errorColor={'#B57F00'}
+            errorColor={'#9A9891FFFF'}
             successColor={'#238209'}
             // errorImageSrc={Images('logo')}
             // successImageSrc={Images('logo')}

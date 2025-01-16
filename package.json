@@ -1,6 +1,6 @@
 {
   "name": "ui-rn",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "repository": "https://github.com/phamha98/ui-rn",
   "description": "ui-rn",
   "author": "Phamha98",
@@ -11,7 +11,8 @@
     "validate-color": "^2.2.4",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-linear-gradient": "^2.8.3",
-    "react-native-indicators": "^0.17.0"
+    "react-native-indicators": "^0.17.0",
+    "react-native-dropdownalert": "^4.5.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
