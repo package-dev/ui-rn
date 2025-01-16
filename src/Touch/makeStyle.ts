@@ -62,15 +62,15 @@ export const makeStyle = (props: { [key: string]: any }) => {
     const style: { [key: string]: number | string } = {};
     Object.keys(props).forEach((key) => {
         const match = key.match(/^(\w+)-(\w+)$/) as string[]
-        console.debug(key, match)
+        // console.debug(key, match)
         if (COLORS[key]) {
             style['backgroundColor'] = key
         }
         else if (match) {
             const value = isNaN(parseInt(match[2], 10)) ? match[2] : parseInt(match[2], 10)
-            console.debug('value', value)
-            console.debug('value', parseInt(match[2], 10))
-            console.debug('value', isNumber(parseInt(match[2], 10)))
+            // console.debug('value', value)
+            // console.debug('value', parseInt(match[2], 10))
+            // console.debug('value', isNumber(parseInt(match[2], 10)))
             if (SHORT_VARIATIONS[match[1]]) style[SHORT_VARIATIONS[match[1]]] = value
             else style[match[1]] = value
         }
@@ -78,7 +78,7 @@ export const makeStyle = (props: { [key: string]: any }) => {
             if (SHORT_VARIATIONS[key]) {
                 style[SHORT_VARIATIONS[key]] = props[key]
             }
-            else style[key] = props[key]
+            // else style[key] = props[key]
         }
     });
     return StyleSheet.create({ style }).style;

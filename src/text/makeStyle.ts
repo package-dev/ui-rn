@@ -66,7 +66,7 @@ export const makeStyle = (props: { [key: string]: any }) => {
     Object.keys(props).forEach((key) => {
         const match = key.match(/^(\w+)-(\w+)$/) as string[]
         if (COLORS[key]) {
-            style['colors'] = key
+            style['color'] = key
         }
         else if (match) {
             const value = isNaN(parseInt(match[2], 10)) ? match[2] : parseInt(match[2], 10)

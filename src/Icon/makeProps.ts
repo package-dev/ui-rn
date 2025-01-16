@@ -27,7 +27,7 @@ export const makeProps = (props: { [key: string]: any }) => {
     let res = { size: props.size ?? 23, color: props.color ?? 'gray', name: props.name ?? 'home' }
     Object.keys(props).forEach((key) => {
         const match = key.match(/^(\w+)-(\w+)$/) as string[]
-        console.debug('COLORS11', key, COLORS[key])
+        // console.debug('COLORS11', key, COLORS[key])
         if (COLORS[key]) {
             console.debug('COLORS22', match)
             res['color'] = key
