@@ -59,7 +59,7 @@ export default function test() {
 | square           | number                                                                                                     |
 | width100         | boolean                                                                                                    |
 | height100        | boolean                                                                                                    |
-| background       | Array < IColor > Array < (string) > string                                                                 |
+| background       | Array <string> , string                                                                 |
 | gradient         | 'vertical', 'horizontal'                                                                                   |
 | flexOne          | boolean                                                                                                    |
 | shadowColor      | string, boolean                                                                                            |
@@ -70,7 +70,6 @@ export default function test() {
 | marginFlex       | { vertical?: number, horizontal?: number }                                                                 |
 | marginOption     | { all?: number, top?: number, left?: number, right?: number, bottom?: number }                             |
 | shadowOption     | { color?: string, width?: number, height?: number, opacity?: number, radius?: number, elevation?: number } |
-| styleChar        | string                                                                                                     |
 | widthScreen      | boolean                                                                                                    |
 | heightScreen     | boolean                                                                                                    |
 
@@ -122,7 +121,7 @@ export default function test() {
 
 | Prop Style  | ViewStyle                         |
 | ----------- | --------------------------------- |
-| bold        | boolean , TextStyle['fontWeight'] |
+| bold        | boolean, TextStyle['fontWeight'] |
 | center      | boolean                           |
 | italic      | boolean                           |
 | underline   | boolean                           |
