@@ -1,7 +1,7 @@
 {
   "name": "ui-rn",
-  "version": "1.0.13",
-  "repository": "https://github.com/phamha98/ui-rn",
+  "version": "1.0.14",
+  "repository": "https://github.com/package-dev/ui-rn",
   "description": "ui-rn",
   "author": "Phamha98",
   "main": "src/index.tsx",
