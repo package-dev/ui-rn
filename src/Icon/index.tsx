@@ -23,6 +23,11 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import { IconProps } from 'react-native-vector-icons/Icon'
 import { isArray, isString } from 'underscore'
+
+/**
+ * Collection of React Native Vector Icons
+ * Provides access to various icon sets from react-native-vector-icons
+ */
 export const RNVectorIcon = {
     Ionicons,
     AntDesign,
@@ -37,20 +42,59 @@ export const RNVectorIcon = {
     Octicons,
     Fontisto
 }
+
+/** Type definition for available icon sets */
 export type IconType = keyof typeof RNVectorIcon
+
 import { Props, } from './PropsStyle'
 import { makeProps } from './makeProps'
+
+/**
+ * IconApp component that provides a unified interface for using various icon sets
+ * Supports touch interaction and custom styling
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <IconApp name="home" />
+ * 
+ * // Custom size and color
+ * <IconApp 
+ *   name="star" 
+ *   size={30} 
+ *   color="gold" 
+ * />
+ * 
+ * // With touch interaction
+ * <IconApp 
+ *   name="heart" 
+ *   onPress={() => console.log('pressed')} 
+ * />
+ * 
+ * // Using different icon set
+ * <IconApp 
+ *   type="FontAwesome" 
+ *   name="user" 
+ * />
+ * ```
+ */
 export default class IconApp extends React.PureComponent<Props> {
+    /** Default props for the IconApp component */
     static defaultProps: Props = {
         size: 23,
         color: 'gray',
         name: 'home',
     }
+
+    /** Internal state for computed props */
     res: { color: string, style: any, size: number }
+
     constructor(props) {
         super(props)
         this.res = makeProps(props)
     }
+
     render() {
         const { size, color, style } = this.res
         // console.debug('res', this.res)
@@ -93,6 +137,9 @@ export default class IconApp extends React.PureComponent<Props> {
     }
 }
 
+/**
+ * Default styles for the IconApp component
+ */
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',

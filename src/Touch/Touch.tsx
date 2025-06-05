@@ -6,6 +6,39 @@ import { isArray, isString } from 'underscore'
 import LinearGradient from 'react-native-linear-gradient'
 
 type TouchableOpacityRef = React.ComponentRef<typeof TouchableOpacity>
+
+/**
+ * Touch component that extends TouchableOpacity with additional styling capabilities
+ * Supports gradient backgrounds and custom styling options
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <Touch onPress={() => console.log('pressed')}>
+ *   <Text>Press me</Text>
+ * </Touch>
+ * 
+ * // With gradient background
+ * <Touch 
+ *   background={['#ff0000', '#00ff00']}
+ *   gradient="vertical"
+ *   onPress={() => console.log('pressed')}
+ * >
+ *   <Text>Gradient Button</Text>
+ * </Touch>
+ * 
+ * // With custom styling
+ * <Touch 
+ *   mid={true}
+ *   row={true}
+ *   paddingOption={{ all: 10 }}
+ *   onPress={() => console.log('pressed')}
+ * >
+ *   <Text>Styled Button</Text>
+ * </Touch>
+ * ```
+ */
 const Touch = React.forwardRef<TouchableOpacityRef, Props>(({ style, ...props }, ref) => {
   if (props?.hidden) return <></>
   //@ts-ignore
