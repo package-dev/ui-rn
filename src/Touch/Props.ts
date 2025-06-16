@@ -55,6 +55,7 @@ export interface PropsApp {
   gradient?: 'vertical' | 'horizontal'
   /** Set flex to 1 */
   flexOne?: boolean
+  flex1?: boolean
   /** Shadow color or boolean to enable default shadow */
   shadowColor?: string | boolean
   /** Border options for each side */

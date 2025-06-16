@@ -118,7 +118,8 @@ export const Style: any = (props: Props) => {
     // Width and height shortcuts
     props.w100 && { width: '100%' },
     props.h100 && { height: '100%' },
-
+    props.flex1 && { flex: 1 },
+    props.flexOne && { flex: 1 },
     // Screen dimensions
     props.widthScreen && { width: Dimensions.get('screen').width },
     props.heightScreen && { height: Dimensions.get('screen').height },
