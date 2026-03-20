@@ -5,13 +5,22 @@
   "description": "ui-rn",
   "author": "Phamha98",
   "main": "src/index.tsx",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.70"
+  },
   "dependencies": {
     "@types/underscore": "^1.11.15",
+    "react-native-vector-icons": "^9.2.0",
+    "react-native-safe-area-view": "^1.1.1",
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/react": "^19.2.14",
     "react": "^19.2.4",
     "react-native": "^0.84.1",
-    "react-native-safe-area-view": "^1.1.1",
-    "react-native-vector-icons": "^9.2.0",
-    "underscore": "^1.13.6"
+    "@react-native/typescript-config": "^0.84.1",
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,9 +29,4 @@
   "keywords": [
     "ui-rn"
   ],
-  "devDependencies": {
-    "@react-native/typescript-config": "^0.84.1",
-    "@types/react": "^19.2.14",
-    "typescript": "^5.9.3"
-  }
 }
