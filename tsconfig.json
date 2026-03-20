@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+
+    // 👇 FIX LỖI CHÍNH
+    "moduleResolution": "node",
+
+    // ❌ BỎ DOM đi
+    "lib": ["ESNext"],
+
+    // 👇 CHO REACT NATIVE
+    "jsx": "react-native",
+
+    "declaration": true,
+    "outDir": "dist",
+
+    "esModuleInterop": true,
+    "skipLibCheck": true, // 👈 cực quan trọng (giảm 90% lỗi)
+    "strict": true
+  },
+  "include": ["src"]
+}
