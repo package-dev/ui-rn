@@ -4,7 +4,7 @@ import { Style } from "./Style";
 import { Props } from "./Props";
 
 type TouchableOpacityRef = React.ComponentRef<typeof View>;
-const Block = React.forwardRef<TouchableOpacityRef, Props>(
+const Block = React.forwardRef<View, Props>(
   ({ style, ...props }, ref) => {
     if (props?.hidden) return <></>;
     return (

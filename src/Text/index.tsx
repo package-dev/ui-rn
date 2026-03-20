@@ -1,9 +1,9 @@
 import React, { isValidElement } from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text as RNText } from "react-native";
 import { Style } from "./Style";
 import { Props } from "./Props";
 import { isArray, isObject } from "underscore";
-const TextApp: React.FC<Props> = ({ style, children, ...props }) => {
+const Text: React.FC<Props> = ({ style, children, ...props }) => {
   const Children = () => {
     const content = props?.lang ?? undefined;
     if (typeof content !== "undefined") {
@@ -16,7 +16,7 @@ const TextApp: React.FC<Props> = ({ style, children, ...props }) => {
       if (typeof content == "function") return "Error content == 'function'";
       if (isObject(children)) return JSON.stringify(children);
       if (isValidElement(content)) return content;
-      return React.createElement(Text, {});
+      return React.createElement(RNText, {});
     }
     if (typeof children !== "undefined") {
       if (
@@ -28,16 +28,16 @@ const TextApp: React.FC<Props> = ({ style, children, ...props }) => {
       if (isObject(children)) return JSON.stringify(children);
       if (typeof children == "function") return "Error children == 'function'";
       if (isValidElement(children)) return children;
-      return React.createElement(Text, {}, children);
+      return React.createElement(RNText, {}, children);
     }
   };
   return (
-    <Text style={[styles.default, Style(props), style]} {...props}>
+    <RNText style={[styles.default, Style(props), style]} {...props}>
       {Children()}
-    </Text>
+    </RNText>
   );
 };
-export default TextApp;
+export default Text;
 const styles = StyleSheet.create({
   default: {
     fontSize: 14,

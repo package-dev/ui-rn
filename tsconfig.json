@@ -19,5 +19,5 @@
     "skipLibCheck": true, // 👈 cực quan trọng (giảm 90% lỗi)
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src", "Example.tsx"]
 }

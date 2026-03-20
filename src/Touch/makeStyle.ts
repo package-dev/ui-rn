@@ -68,11 +68,8 @@ const isShortKey = (key: string): key is ShortKey => {
 export type ColorKey = keyof typeof COLORS;
 export type ShortKey = keyof typeof PROPS;
 export type Convert<T extends string> = Partial<Record<T, boolean | number | string>>
-export type MakeProp =
-    Partial<Record<ShortKey, number | string>> &
-    Partial<Record<ColorKey, boolean>> &
-    Record<string, any>;
-
+export type ColorModifiers = Partial<Record<keyof typeof COLORS, boolean>>;
+export type MakeProp = Convert<ShortKey> & ColorModifiers
 
 export const makeStyle = <T>(props: { [key: string]: any }) => {
     const style: ViewStyle = {};
