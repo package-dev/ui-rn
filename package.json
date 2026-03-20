@@ -9,13 +9,9 @@
     "@types/underscore": "^1.11.15",
     "react": "^19.2.4",
     "react-native": "^0.84.1",
-    "react-native-dropdownalert": "^4.5.1",
-    "react-native-indicators": "^0.17.0",
-    "react-native-linear-gradient": "^2.8.3",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-vector-icons": "^9.2.0",
-    "underscore": "^1.13.6",
-    "validate-color": "^2.2.4"
+    "underscore": "^1.13.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
