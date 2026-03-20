@@ -1,9 +1,9 @@
-import { Colors } from "../config";
-import { StyleProp, ViewStyle, StyleSheet } from "react-native";
+
+import { StyleSheet } from "react-native";
 
 import { Props } from './Props'
 import { makeStyle } from "./makeStyle";
-export const Style: any = (props: Props, ColorApp = Colors) => {
+export const Style: any = (props: Props) => {
     const PropsConvert = StyleSheet.flatten([
         props.color && { color: props.color },
         props.center && { textAlign: 'center' },

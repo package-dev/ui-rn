@@ -1,6 +1,5 @@
 import React from 'react'
 import { TextProps, TextStyle } from 'react-native'
-import {   ILanguage } from '../config'
 import { MakeProp } from './makeStyle'
 interface PropsParent {
     children?: React.ReactNode
@@ -8,10 +7,10 @@ interface PropsParent {
     center?: boolean
     italic?: boolean
     underline?: boolean
-    color?: string 
+    color?: string
     toUpperCase?: boolean
     toLowerCase?: boolean
-    background?: string  
+    background?: string
 }
 //@ts-ignore
 export interface Props extends TextProps, PropsParent, MakeProp {
@@ -25,6 +24,6 @@ export interface Props extends TextProps, PropsParent, MakeProp {
     pink?: boolean
     gray?: boolean
     black?: boolean
-    /** Lang in file VI/EN */
-    lang?: ILanguage
+    lang?: string
+    content?: string
 }

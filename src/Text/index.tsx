@@ -1,5 +1,5 @@
 import React, { isValidElement } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { Style } from "./Style";
 import { Props } from "./Props";
 import { isArray, isObject } from "underscore";
@@ -32,12 +32,7 @@ const TextApp: React.FC<Props> = ({ style, children, ...props }) => {
     }
   };
   return (
-    <Text
-      // adjustsFontSizeToFit
-      // selectable
-      style={[styles.default, Style(props), style]}
-      {...props}
-    >
+    <Text style={[styles.default, Style(props), style]} {...props}>
       {Children()}
     </Text>
   );
@@ -45,9 +40,6 @@ const TextApp: React.FC<Props> = ({ style, children, ...props }) => {
 export default TextApp;
 const styles = StyleSheet.create({
   default: {
-    fontWeight: "300",
-    color: "black",
-    fontSize: 15,
-    paddingTop: 2,
+    fontSize: 14,
   },
 });
