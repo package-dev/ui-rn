@@ -66,7 +66,7 @@ export const makeStyle = (props) => {
     Object.keys(props).forEach((key) => {
         const match = key.match(/^(\w+)-(\w+)$/);
         if (isColorKey(key)) {
-            style.backgroundColor = key;
+            style.color = key;
             return;
         }
         if (match) {
