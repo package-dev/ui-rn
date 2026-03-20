@@ -1,6 +1,6 @@
 {
   "name": "ui-rn",
-  "version": "1.0.19",
+  "version": "2.0.0",
   "repository": "https://github.com/package-dev/ui-rn",
   "description": "ui-rn",
   "author": "Phamha98",
@@ -20,7 +20,7 @@
     "@types/react": "^19.2.14",
     "react": "^19.2.4",
     "react-native": "^0.84.1",
-    "@react-native/typescript-config": "^0.84.1",
+    "@react-native/typescript-config": "^0.84.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +28,5 @@
   "license": "ISC",
   "keywords": [
     "ui-rn"
-  ],
+  ]
 }
