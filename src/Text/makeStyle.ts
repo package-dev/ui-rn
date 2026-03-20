@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextStyle } from "react-native";
 import { isNaN, isNumber } from "underscore";
 enum COLORS {
     "white" = 1,
@@ -11,9 +11,7 @@ enum COLORS {
     "gray",
     "primary"
 }
-type ColorModifiers = Partial<Record<keyof typeof COLORS, boolean>>;
-
-const SHORT_VARIATIONS = {
+const PROPS = {
     bg: "backgroundColor",
     background: "backgroundColor",
     color: "color",
@@ -54,31 +52,54 @@ const SHORT_VARIATIONS = {
     bottom: 'bottom',
     right: 'right',
     opacity: 'opacity',
-    //
     size: 'fontSize'
+} as const;
+const isColorKey = (key: string): key is ColorKey => {
+    return key in COLORS;
 };
-export type ShortKey = keyof typeof SHORT_VARIATIONS;
+
+const isShortKey = (key: string): key is ShortKey => {
+    return key in PROPS;
+};
+
+export type ColorKey = keyof typeof COLORS;
+export type ShortKey = keyof typeof PROPS;
 export type Convert<T extends string> = Partial<Record<T, boolean | number | string>>
-export type MakeProp = Convert<ShortKey> & ColorModifiers
+export type MakeProp =
+    Partial<Record<ShortKey, number | string>> &
+    Partial<Record<ColorKey, boolean>> &
+    Record<string, any>;
 
 export const makeStyle = (props: { [key: string]: any }) => {
-    const style: { [key: string]: number | string } = {};
+    const style: TextStyle = {};
     Object.keys(props).forEach((key) => {
-        const match = key.match(/^(\w+)-(\w+)$/) as string[]
-        if (COLORS[key]) {
-            style['color'] = key
+        const match = key.match(/^(\w+)-(\w+)$/);
+
+        if (isColorKey(key)) {
+            style.backgroundColor = key;
+            return;
         }
-        else if (match) {
-            const value = isNaN(parseInt(match[2], 10)) ? match[2] : parseInt(match[2], 10)
-            if (SHORT_VARIATIONS[match[1]]) style[SHORT_VARIATIONS[match[1]]] = value
-            else style[match[1]] = value
-        }
-        else {
-            if (SHORT_VARIATIONS[key]) {
-                style[SHORT_VARIATIONS[key]] = props[key]
+
+        if (match) {
+            const [, rawKey, rawValue] = match;
+
+            const value = isNaN(Number(rawValue))
+                ? rawValue
+                : Number(rawValue);
+
+            if (isShortKey(rawKey)) {
+                style[PROPS[rawKey]] = value as any;
+            } else {
+                (style as any)[rawKey] = value;
             }
-            // else style[key] = props[key]
+            return;
+        }
+
+        // 🔹 Normal props
+        if (isShortKey(key)) {
+            style[PROPS[key]] = props[key] as any;
         }
     });
+
     return StyleSheet.create({ style }).style;
 };

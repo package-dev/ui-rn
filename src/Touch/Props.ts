@@ -1,5 +1,4 @@
-import { IColor } from "../config"
-import { StyleProp, FlexStyle, TouchableWithoutFeedbackProps, ViewStyle } from "react-native"
+import { FlexStyle, TouchableWithoutFeedbackProps, ViewStyle } from "react-native"
 import { MakeProp } from "./makeStyle"
 
 /**
@@ -29,6 +28,7 @@ export interface PropsApp {
   h100?: boolean
   /** Center content both horizontally and vertically */
   mid?: boolean
+  middle?: boolean
   /** Set flex direction to row */
   row?: boolean
   /** Center content horizontally */
@@ -50,7 +50,7 @@ export interface PropsApp {
   /** Set height to 100% */
   height100?: boolean
   /** Background color or gradient colors */
-  background?: Array<IColor> | Array<(string)> | string
+  background?: string
   /** Gradient direction */
   gradient?: 'vertical' | 'horizontal'
   /** Set flex to 1 */

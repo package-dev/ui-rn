@@ -1,9 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 import { isNaN, isNumber } from "underscore";
 
-/**
- * Enum of predefined color names that can be used for background colors
- */
 enum COLORS {
     "white" = 1,
     "red",
@@ -15,15 +12,7 @@ enum COLORS {
     "gray",
     "primary"
 }
-
-/** Type for color modifiers that can be used as boolean flags */
-type ColorModifiers = Partial<Record<keyof typeof COLORS, boolean>>;
-
-/**
- * Mapping of short property names to their full React Native style property names
- * This allows for shorter, more convenient style property names
- */
-const SHORT_VARIATIONS = {
+const PROPS = {
     bg: "backgroundColor",
     background: "backgroundColor",
     w: "width",
@@ -36,7 +25,9 @@ const SHORT_VARIATIONS = {
     maxH: "maxHeight",
     pad: "padding",
     padH: "paddingHorizontal",
+    horizontal: "paddingHorizontal",
     padV: "paddingVertical",
+    vertical: "paddingVertical",
     padL: "paddingLeft",
     padT: "paddingTop",
     padR: "paddingRight",
@@ -51,6 +42,7 @@ const SHORT_VARIATIONS = {
     border: 'borderWidth',
     borderW: 'borderWidth',
     borderR: "borderRadius",
+    radius: "borderRadius",
     borderC: "borderColor",
     borderLW: "borderLeftWidth",
     borderTW: "borderTopWidth",
@@ -63,58 +55,58 @@ const SHORT_VARIATIONS = {
     bottom: 'bottom',
     right: 'right',
     opacity: 'opacity'
+} as const;
+
+const isColorKey = (key: string): key is ColorKey => {
+    return key in COLORS;
 };
 
-/** Type for short property names */
-export type ShortKey = keyof typeof SHORT_VARIATIONS;
+const isShortKey = (key: string): key is ShortKey => {
+    return key in PROPS;
+};
 
-/** Type for converting string keys to a record of boolean/number/string values */
+export type ColorKey = keyof typeof COLORS;
+export type ShortKey = keyof typeof PROPS;
 export type Convert<T extends string> = Partial<Record<T, boolean | number | string>>
+export type MakeProp =
+    Partial<Record<ShortKey, number | string>> &
+    Partial<Record<ColorKey, boolean>> &
+    Record<string, any>;
 
-/** Type combining short property names and color modifiers */
-export type MakeProp = Convert<ShortKey> & ColorModifiers
 
-/**
- * Creates a React Native style object from props using short property names
- * Supports color names, hyphenated properties, and direct style properties
- * 
- * @param props - Object containing style properties
- * @returns React Native style object
- * 
- * @example
- * ```tsx
- * // Using color names
- * makeStyle({ white: true }) // { backgroundColor: 'white' }
- * 
- * // Using hyphenated properties
- * makeStyle({ 'pad-10': true }) // { padding: 10 }
- * 
- * // Using direct properties
- * makeStyle({ width: 100 }) // { width: 100 }
- * ```
- */
-export const makeStyle = (props: { [key: string]: any }) => {
-    const style: { [key: string]: number | string } = {};
+export const makeStyle = <T>(props: { [key: string]: any }) => {
+    const style: ViewStyle = {};
+
     Object.keys(props).forEach((key) => {
-        const match = key.match(/^(\w+)-(\w+)$/) as string[]
-        // console.debug(key, match)
-        if (COLORS[key]) {
-            style['backgroundColor'] = key
+        const match = key.match(/^(\w+)-(\w+)$/);
+
+        // 🎨 Color
+        if (isColorKey(key)) {
+            style.backgroundColor = key;
+            return;
         }
-        else if (match) {
-            const value = isNaN(parseInt(match[2], 10)) ? match[2] : parseInt(match[2], 10)
-            // console.debug('value', value)
-            // console.debug('value', parseInt(match[2], 10))
-            // console.debug('value', isNumber(parseInt(match[2], 10)))
-            if (SHORT_VARIATIONS[match[1]]) style[SHORT_VARIATIONS[match[1]]] = value
-            else style[match[1]] = value
-        }
-        else {
-            if (SHORT_VARIATIONS[key]) {
-                style[SHORT_VARIATIONS[key]] = props[key]
+
+        // 🔹 Hyphen syntax (pad-10)
+        if (match) {
+            const [, rawKey, rawValue] = match;
+
+            const value = isNaN(Number(rawValue))
+                ? rawValue
+                : Number(rawValue);
+
+            if (isShortKey(rawKey)) {
+                style[PROPS[rawKey]] = value as any;
+            } else {
+                (style as any)[rawKey] = value;
             }
-            // else style[key] = props[key]
+            return;
+        }
+
+        // 🔹 Normal props
+        if (isShortKey(key)) {
+            style[PROPS[key]] = props[key] as any;
         }
     });
+
     return StyleSheet.create({ style }).style;
 };

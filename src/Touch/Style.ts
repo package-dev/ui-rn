@@ -1,7 +1,6 @@
 import { StyleProp, ViewStyle, StyleSheet, Dimensions } from "react-native";
 import { isArray, isEmpty, isNumber, isObject, isString } from "underscore";
 import { Props } from './Props'
-import { Colors } from "../config";
 import { makeStyle } from "./makeStyle";
 
 /**
