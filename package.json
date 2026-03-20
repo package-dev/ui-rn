@@ -1,6 +1,6 @@
 {
   "name": "ui-rn",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": "https://github.com/package-dev/ui-rn",
   "description": "ui-rn",
   "author": "Phamha98",
@@ -11,16 +11,17 @@
   },
   "dependencies": {
     "@types/underscore": "^1.11.15",
-    "react-native-vector-icons": "^9.2.0",
     "react-native-safe-area-view": "^1.1.1",
+    "react-native-vector-icons": "^9.2.0",
     "underscore": "^1.13.6"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "@react-native/typescript-config": "^0.84.1",
     "@types/react": "^19.2.14",
+    "@types/react-native-vector-icons": "^6.4.18",
     "react": "^19.2.4",
     "react-native": "^0.84.1",
-    "@react-native/typescript-config": "^0.84.1"
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
