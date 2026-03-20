@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";

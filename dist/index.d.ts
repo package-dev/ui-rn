@@ -1,5 +1,0 @@
-export { default as Touch } from './Touch/Touch';
-export { default as Block } from './Touch/Block';
-export { default as Text } from './Text';
-export { default as Icon } from './Icon';
-export { default as Layout } from './Layout';
