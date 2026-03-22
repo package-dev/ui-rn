@@ -45,14 +45,13 @@ export default class IconApp extends React.PureComponent<Props> {
     name: "home",
   };
 
-  res: { color: string; style: any; size: number };
-
   constructor(props: Props) {
     super(props);
     this.res = makeProps(props);
   }
   render() {
-    const { size, color, style } = this.res;
+    const res = makeProps(this.props);
+    const { size, color, style } = res;
     if (this.props.name === "none") return null;
     const IconView = RNVectorIcon[this.props.type || "Ionicons"];
     if (typeof this.props.onPress != "function") {
