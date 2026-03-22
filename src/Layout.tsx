@@ -1,24 +1,25 @@
-import React from "react";
-import SafeAreaView, { ForceInsetProp } from "react-native-safe-area-view";
-import { StyleProp, ViewStyle } from "react-native";
-export interface LayoutAppProps {
+import React from 'react';
+import SafeAreaView, { ForceInsetProp } from 'react-native-safe-area-view';
+import { StyleProp, ViewStyle } from 'react-native';
+export interface ILayout {
   children?: any;
   forceInset?: ForceInsetProp;
   forceInsetBot?: ForceInsetProp;
-  styleBot?: StyleProp<ViewStyle> | undefined;
+  styleBottom?: StyleProp<ViewStyle> | undefined;
   style?: StyleProp<ViewStyle> | undefined;
-  isBack?: boolean;
-  disable?: boolean;
+  primary?: string;
+  bottomInset?: boolean;
+
 }
 export default function Layout({
   children,
-  forceInset = { top: "always", horizontal: "never", bottom: "never" },
-  forceInsetBot = { vertical: "never" },
-  styleBot,
+  forceInset = { top: 'always', horizontal: 'never', bottom: 'never' },
+  forceInsetBot = { vertical: 'never' },
+  styleBottom,
   style,
-  disable,
-}: LayoutAppProps) {
-  if (disable) return <>{children}</>;
+  primary,
+  bottomInset
+}: ILayout) {
   return (
     <SafeAreaView
       style={[
@@ -26,6 +27,9 @@ export default function Layout({
           flex: 1,
         },
         style,
+        primary && {
+          backgroundColor: primary
+        }
       ]}
       forceInset={forceInset}
     >
@@ -33,13 +37,14 @@ export default function Layout({
         style={[
           {
             flex: 1,
+            backgroundColor: 'white'
           },
-          styleBot,
+          styleBottom,
         ]}
-        forceInset={forceInsetBot}
+        forceInset={{ ...(bottomInset || styleBottom) && { vertical: 'never', bottom: 'always' }, ...forceInsetBot }}
       >
         {children}
       </SafeAreaView>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }

@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import { Text, Block, Icon } from './dist'
+import { Text, Block, Icon } from './src'
 
 export default function Example() {
   return (
@@ -11,5 +11,3 @@ export default function Example() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({})

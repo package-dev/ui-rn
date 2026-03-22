@@ -1,4 +1,5 @@
 export { default as Touch } from './Touch/Touch'
+export { default as TouchScale } from './Touch/TouchScale'
 export { default as Block } from './Touch/Block'
 export { default as Text } from './Text'
 export { default as Icon } from './Icon'
