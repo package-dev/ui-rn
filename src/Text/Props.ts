@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextProps, TextStyle } from 'react-native'
+import { TextProps as RNTextProps, TextStyle } from 'react-native'
 import { MakeProp } from './makeStyle'
 interface PropsParent {
     children?: React.ReactNode
@@ -13,7 +13,7 @@ interface PropsParent {
     background?: string
 }
 //@ts-ignore
-export interface Props extends TextProps, PropsParent, MakeProp {
+export interface TextProps extends RNTextProps, PropsParent, MakeProp {
     backgroundColor?: string
     primary?: boolean
     white?: boolean

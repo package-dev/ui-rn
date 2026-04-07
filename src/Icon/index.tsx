@@ -35,7 +35,7 @@ export const RNVectorIcon = {
 
 export type IconType = keyof typeof RNVectorIcon;
 
-import { Props } from "./PropsStyle";
+import { Props } from "./Props";
 import { makeProps } from "./makeProps";
 
 export default class IconApp extends React.PureComponent<Props> {

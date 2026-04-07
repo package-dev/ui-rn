@@ -3,14 +3,14 @@ import { Animated, TouchableOpacity, ViewProps } from "react-native";
 import { Style } from "./Style";
 import { Props } from "./Props";
 
-interface ButtonScaleProps extends Props {
+export interface TouchableScaleProps extends Props {
   scaleValue?: number;
   scale?: boolean;
   containerStyle?: ViewProps["style"];
 }
 type TouchableOpacityRef = React.ComponentRef<typeof TouchableOpacity>;
 
-const Touch = React.forwardRef<TouchableOpacityRef, ButtonScaleProps>(
+const Touch = React.forwardRef<TouchableOpacityRef, TouchableScaleProps>(
   ({ scaleValue = 1.1, style, background, containerStyle, ...props }, ref) => {
     if (props?.hidden) return <></>;
     const animatedButtonScale = React.useRef(new Animated.Value(1)).current;

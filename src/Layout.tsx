@@ -1,7 +1,7 @@
 import React from 'react';
 import SafeAreaView, { ForceInsetProp } from 'react-native-safe-area-view';
 import { StyleProp, ViewStyle } from 'react-native';
-export interface ILayout {
+export interface LayoutProps {
   children?: any;
   forceInset?: ForceInsetProp;
   forceInsetBot?: ForceInsetProp;
@@ -19,7 +19,7 @@ export default function Layout({
   style,
   primary,
   bottomInset
-}: ILayout) {
+}: LayoutProps) {
   return (
     <SafeAreaView
       style={[

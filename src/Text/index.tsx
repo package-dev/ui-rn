@@ -1,9 +1,9 @@
 import React, { isValidElement } from "react";
 import { StyleSheet, Text as RNText } from "react-native";
 import { Style } from "./Style";
-import { Props } from "./Props";
+import { TextProps } from "./Props";
 import { isArray, isObject } from "underscore";
-const Text: React.FC<Props> = ({ style, children, ...props }) => {
+const Text: React.FC<TextProps> = ({ style, children, ...props }) => {
   const Children = () => {
     const content = props?.lang ?? undefined;
     if (typeof content !== "undefined") {
