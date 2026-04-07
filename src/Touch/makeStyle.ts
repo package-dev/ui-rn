@@ -44,6 +44,7 @@ const PROPS = {
     borderR: "borderRadius",
     radius: "borderRadius",
     borderC: "borderColor",
+    borderColor: "borderColor",
     borderLW: "borderLeftWidth",
     borderTW: "borderTopWidth",
     borderRW: "borderRightWidth",
