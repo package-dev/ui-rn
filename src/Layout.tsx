@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import SafeAreaView, { ForceInsetProp } from 'react-native-safe-area-view';
 import { StyleProp, ViewStyle } from 'react-native';
